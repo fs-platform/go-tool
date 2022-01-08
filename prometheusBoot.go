@@ -8,7 +8,7 @@ import (
 )
 
 func PrometheusBoot(port int) {
-	http.Handle("/metric", promhttp.Handler())
+	http.Handle("/metrics", promhttp.Handler())
 	go func() {
 		err := http.ListenAndServe("0.0.0.0:"+strconv.Itoa(port), nil)
 		log.Info(err)
